@@ -9,6 +9,7 @@ import java.rmi.server.*;
 import java.rmi.registry.*;
 import org.joda.money.*;
 import java.util.Date;
+import java.util.List;
 /**
  *
  * @author duffy 
@@ -22,12 +23,22 @@ public class Bank implements BankInterface {
 
     
     public long login(String username, String password) throws RemoteException, InvalidLogin{
-        
+        for(Account a: accounts){
+            if(a.getUsername().equals(username)){
+                if(a.checkPassword(password)){
+                    return a.createSession(); //Returns the generated SessionID 
+                }
+            }
+        }
+        throw new InvalidLogin();
     }
     
     
     public void deposit(int account, Money amount) throws RemoteException, InvalidSession {
-// implementation code
+        
+        for(Account a: accounts){
+            
+        }
     }
 
     public void withdraw(int account, Money amount) throws RemoteException, InvalidSession {
@@ -38,7 +49,8 @@ public class Bank implements BankInterface {
 // implementation code
     }
 
-    public Statement getStatement(Date from, Date to) throws RemoteException, InvalidSession {
+
+    public Statement getStatement(Date from, Date to, long sessionID) throws RemoteException, InvalidSession {
 // implementation code
     }
 

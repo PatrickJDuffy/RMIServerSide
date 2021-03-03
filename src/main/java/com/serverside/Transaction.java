@@ -5,6 +5,8 @@
  */
 package com.serverside;
 
+import org.joda.money.*;
+import java.util.Date;
 /**
  *
  * @author duffy
@@ -12,8 +14,12 @@ package com.serverside;
 public class Transaction extends Serializable {
 // Needs some accessor methods to return information about the transaction
 
-    public Money getAmount();
+    public Money getAmount(){
+        return Money;
+    }
 
-    public Date getDate();
+    public Date getDate(){
+        return Date;
+    }
     public String description;
 }
