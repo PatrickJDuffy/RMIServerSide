@@ -6,6 +6,8 @@
 package com.serverside;
 
 import java.util.Date;
+import java.io.Serializable;
+import java.util.List;
 /**
  *
  * @author duffy
@@ -21,4 +23,6 @@ public interface Statement extends Serializable {
     public String getAccoutName(); // returns name of account holder
 
     public List<Transaction> getTransactions(); // return list of transactions included in this statement  
+
+    public void addTransaction(Transaction t);
 }

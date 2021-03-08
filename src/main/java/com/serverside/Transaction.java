@@ -5,21 +5,40 @@
  */
 package com.serverside;
 
-import org.joda.money.*;
+import java.math.BigDecimal;
 import java.util.Date;
+import java.io.Serializable;
 /**
  *
  * @author duffy
  */
-public class Transaction extends Serializable {
-// Needs some accessor methods to return information about the transaction
+public class Transaction implements Serializable {
+    
+    private final String username;
+    private final BigDecimal amount;
+    private final Date date;
+    public final String description;
+    
+    public Transaction(String username, BigDecimal amount, Date date, String description){
+        this.username = username;
+        this.amount = amount;
+        this.date = date;
+        this.description = description;
+    }
 
-    public Money getAmount(){
-        return Money;
+    public String getType(){
+        return description;
+    }
+    
+    public BigDecimal getAmount(){
+        return amount;
     }
 
     public Date getDate(){
-        return Date;
+        return date;
     }
-    public String description;
+
+    public String getUsername(){
+        return username;
+    }
 }
