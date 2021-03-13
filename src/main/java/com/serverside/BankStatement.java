@@ -27,9 +27,11 @@ public class BankStatement implements Statement{
         this.startDate = start;
         this.endDate = end;
     }
-        public void addTransaction(Transaction t){
-        transactions.add(t);
+    
+    public void addTransaction(Transaction t){
+    transactions.add(t);
     }
+    
     @Override
     public int getAccountnum(){
         return accountNum;
